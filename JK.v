@@ -19,12 +19,27 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module JK(
-    input [1:0] J,
-    input [1:0] K,
+    input J,
+    input K,
+    input R,
+    input S,
+    input CLK,
     output Q,
-    output Q',
-    input [1:0] C
-    );
+	output QP
+);
+reg Q //Permite guardar el valor del registro.
 
-wire 
+if (R == 1) beign
+	and (Q, 0, 0);	
+end else if (S == 1) beign
+	and (Q, 1, 1);
+end else if (J == 1 && K == 0) beign
+	and (Q, 1, 1);
+end  else if (J == 0 && K == 1) beign
+	and (Q, 0, 0);
+end  else if (J == 1 && K == 1) beign
+	not (Q, Q);
+end
+
+not (QP, Q);
 endmodule
